@@ -1,6 +1,13 @@
-package ru.netology.posterfilm;
+package ru.netology.manager;
+
+import ru.netology.domain.PosterFilm;
+import ru.netology.repository.RepositoryFilms;
 
 public class PosterFilmManager {
+    private RepositoryFilms repository;
+    public PosterFilmManager(RepositoryFilms repository) {
+        this.repository = repository;
+    }
     private PosterFilm[] films = new PosterFilm[0];
     private int limit = 10;
 
