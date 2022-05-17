@@ -1,4 +1,4 @@
-package ru.netology.posterfilm;
+package ru.netology.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +14,13 @@ public class PosterFilm {
     private String filmGenre;
     private int ticketPrice;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public PosterFilm(int id, int productId, String filmName, String filmGenre, int ticketPrice) {
         this.id = id;
