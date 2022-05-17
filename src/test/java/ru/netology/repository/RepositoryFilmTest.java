@@ -1,7 +1,6 @@
 package ru.netology.repository;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Disabled;
 
 import ru.netology.domain.PosterFilm;
 
@@ -26,17 +25,17 @@ public class RepositoryFilmTest {
 
     @Test
     public void shouldFindAllFilms() {
-        repository.save(first);
-        repository.save(second);
-        repository.save(third);
-        repository.save(fourth);
-        repository.save(fifth);
-        repository.save(sixth);
-        repository.save(seventh);
-        repository.save(eighth);
-        repository.save(ninth);
-        repository.save(tenth);
-        repository.save(eleventh);
+        repository.addSave(first);
+        repository.addSave(second);
+        repository.addSave(third);
+        repository.addSave(fourth);
+        repository.addSave(fifth);
+        repository.addSave(sixth);
+        repository.addSave(seventh);
+        repository.addSave(eighth);
+        repository.addSave(ninth);
+        repository.addSave(tenth);
+        repository.addSave(eleventh);
 
         PosterFilm[] expected = new PosterFilm[]{first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh};
         PosterFilm[] actual = repository.findAll();
@@ -47,11 +46,11 @@ public class RepositoryFilmTest {
 
     @Test
     public void shouldSaveFilms() {
-        repository.save(seventh);
-        repository.save(eighth);
-        repository.save(ninth);
-        repository.save(tenth);
-        repository.save(eleventh);
+        repository.addSave(seventh);
+        repository.addSave(eighth);
+        repository.addSave(ninth);
+        repository.addSave(tenth);
+        repository.addSave(eleventh);
 
         PosterFilm[] expected = new PosterFilm[]{seventh, eighth, ninth, tenth, eleventh};
         PosterFilm[] actual = repository.findAll();
@@ -61,17 +60,17 @@ public class RepositoryFilmTest {
 
     @Test
     public void shouldFindIfFilmsExists() {
-        repository.save(first);
-        repository.save(second);
-        repository.save(third);
-        repository.save(fourth);
-        repository.save(fifth);
-        repository.save(sixth);
-        repository.save(seventh);
-        repository.save(eighth);
-        repository.save(ninth);
-        repository.save(tenth);
-        repository.save(eleventh);
+        repository.addSave(first);
+        repository.addSave(second);
+        repository.addSave(third);
+        repository.addSave(fourth);
+        repository.addSave(fifth);
+        repository.addSave(sixth);
+        repository.addSave(seventh);
+        repository.addSave(eighth);
+        repository.addSave(ninth);
+        repository.addSave(tenth);
+        repository.addSave(eleventh);
 
         repository.findById(4);
         PosterFilm expected = fourth;
@@ -81,17 +80,17 @@ public class RepositoryFilmTest {
 
     @Test
     public void shouldReturnNullIfFilmsNotExists() {
-        repository.save(first);
-        repository.save(second);
-        repository.save(third);
-        repository.save(fourth);
-        repository.save(fifth);
-        repository.save(sixth);
-        repository.save(seventh);
-        repository.save(eighth);
-        repository.save(ninth);
-        repository.save(tenth);
-        repository.save(eleventh);
+        repository.addSave(first);
+        repository.addSave(second);
+        repository.addSave(third);
+        repository.addSave(fourth);
+        repository.addSave(fifth);
+        repository.addSave(sixth);
+        repository.addSave(seventh);
+        repository.addSave(eighth);
+        repository.addSave(ninth);
+        repository.addSave(tenth);
+        repository.addSave(eleventh);
 
         repository.findById(12);
         PosterFilm expected = null;
@@ -109,17 +108,17 @@ public class RepositoryFilmTest {
 
     @Test
     public void shouldRemoveIfExists() {
-        repository.save(first);
-        repository.save(second);
-        repository.save(third);
-        repository.save(fourth);
-        repository.save(fifth);
-        repository.save(sixth);
-        repository.save(seventh);
-        repository.save(eighth);
-        repository.save(ninth);
-        repository.save(tenth);
-        repository.save(eleventh);
+        repository.addSave(first);
+        repository.addSave(second);
+        repository.addSave(third);
+        repository.addSave(fourth);
+        repository.addSave(fifth);
+        repository.addSave(sixth);
+        repository.addSave(seventh);
+        repository.addSave(eighth);
+        repository.addSave(ninth);
+        repository.addSave(tenth);
+        repository.addSave(eleventh);
 
         repository.removeById(4);
         PosterFilm[] expected = new PosterFilm[]{first, second, third, fifth, sixth, seventh, eighth, ninth, tenth, eleventh};
@@ -127,40 +126,20 @@ public class RepositoryFilmTest {
         assertArrayEquals(expected, actual);
 
     }
-    @Disabled
-    @Test
-    public void shouldNotRemoveIfNotExists() {
-        repository.save(first);
-        repository.save(second);
-        repository.save(third);
-        repository.save(fourth);
-        repository.save(fifth);
-        repository.save(sixth);
-        repository.save(seventh);
-        repository.save(eighth);
-        repository.save(ninth);
-        repository.save(tenth);
-        repository.save(eleventh);
-
-        repository.removeById(12);
-        PosterFilm[] expected = new PosterFilm[]{first, second, third, fifth, sixth, seventh, eighth, ninth, tenth, eleventh};
-        PosterFilm[] actual = repository.findAll();
-        assertArrayEquals(expected, actual);
-    }
 
     @Test
     public void shouldRemoveAll() {
-        repository.save(first);
-        repository.save(second);
-        repository.save(third);
-        repository.save(fourth);
-        repository.save(fifth);
-        repository.save(sixth);
-        repository.save(seventh);
-        repository.save(eighth);
-        repository.save(ninth);
-        repository.save(tenth);
-        repository.save(eleventh);
+        repository.addSave(first);
+        repository.addSave(second);
+        repository.addSave(third);
+        repository.addSave(fourth);
+        repository.addSave(fifth);
+        repository.addSave(sixth);
+        repository.addSave(seventh);
+        repository.addSave(eighth);
+        repository.addSave(ninth);
+        repository.addSave(tenth);
+        repository.addSave(eleventh);
 
         repository.removeAll();
         PosterFilm[] expected = new PosterFilm[]{};

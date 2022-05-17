@@ -20,8 +20,14 @@ public class PosterFilmManager {
         this.repository = repository;
     }
 
+    public PosterFilm[] findAll() {
+        repository.findAll();
+        return films;
+
+    }
+
     public void addSave(PosterFilm film) {
-        repository.save(film);
+        repository.addSave(film);
     }
 
     public void removeById(int id) {
@@ -37,14 +43,14 @@ public class PosterFilmManager {
     }
 
     public PosterFilm[] getAll() {
-        PosterFilm[] movies = repository.findAll();
+        PosterFilm[] films = repository.findAll();
         int resultLength = limit;
-        if (movies.length < resultLength)
-            resultLength = movies.length;
+        if (films.length < resultLength)
+            resultLength = films.length;
         PosterFilm[] result = new PosterFilm[resultLength];
         for (int i = 0; i < resultLength; i++) {
-            int index = movies.length - i - 1;
-            result[i] = movies[index];
+            int index = films.length - i - 1;
+            result[i] = films[index];
         }
         return result;
     }

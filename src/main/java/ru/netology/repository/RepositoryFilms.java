@@ -4,12 +4,17 @@ import ru.netology.domain.PosterFilm;
 
 public class RepositoryFilms {
     private PosterFilm[] films = new PosterFilm[0];
+        private int limit = 10;
 
-    public PosterFilm[] findAll() {
-        return films;
+    public RepositoryFilms() {
     }
 
-    public void save(PosterFilm film) {
+
+    public RepositoryFilms(int limit) {
+        this.limit = limit;
+    }
+
+    public void addSave(PosterFilm film) {
         int length = films.length + 1;
         PosterFilm[] tmp = new PosterFilm[length];
         for (int i = 0; i < films.length; i++) {
@@ -18,6 +23,10 @@ public class RepositoryFilms {
         tmp[tmp.length - 1] = film;
         films = tmp;
 
+    }
+
+    public PosterFilm[] findAll() {
+        return films;
     }
 
     public PosterFilm findById(int id) {
@@ -38,8 +47,8 @@ public class RepositoryFilms {
                 tmp[index] = film;
                 index++;
             }
+            films = tmp;
         }
-        films = tmp;
     }
 
     public void removeAll() {
