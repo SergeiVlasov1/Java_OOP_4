@@ -20,10 +20,10 @@ public class RepositoryFilms {
 
     }
 
-    public PosterFilm[] findById(int id) {
+    public PosterFilm findById(int id) {
         for (PosterFilm film : films) {
             if (film.getId() == id) {
-                return films;
+                return film;
             }
         }
         return null;
@@ -42,11 +42,8 @@ public class RepositoryFilms {
         films = tmp;
     }
 
-    public void removeAll(int id) {
-        int length = 0;
-        PosterFilm[] tmp = new PosterFilm[length];
-        int index = 0;
-        films = tmp;
+    public void removeAll() {
+        films = new PosterFilm[0];
     }
 }
 

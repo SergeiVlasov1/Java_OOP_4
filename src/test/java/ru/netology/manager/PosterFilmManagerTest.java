@@ -3,7 +3,7 @@ package ru.netology.manager;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.PosterFilm;
 import ru.netology.manager.PosterFilmManager;
-
+import ru.netology.repository.RepositoryFilms;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PosterFilmManagerTest {
@@ -33,12 +33,11 @@ class PosterFilmManagerTest {
         managers.addSave(eighth);
         managers.addSave(ninth);
         managers.addSave(tenth);
-
         managers.addSave(eleventh);
 
 
         PosterFilm[] expected = {first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh};
-        PosterFilm[] actual = managers.findAll();
+        PosterFilm[] actual = managers.getAll();
 
         assertArrayEquals(expected, actual);
     }
@@ -60,7 +59,7 @@ class PosterFilmManagerTest {
         PosterFilmManager managers = new PosterFilmManager();
 
         PosterFilm[] expected = {};
-        PosterFilm[] actual = managers.findAll();
+        PosterFilm[] actual = managers.getAll();
 
         assertArrayEquals(expected, actual);
     }

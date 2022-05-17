@@ -5,9 +5,6 @@ import ru.netology.repository.RepositoryFilms;
 
 public class PosterFilmManager {
     private RepositoryFilms repository;
-    public PosterFilmManager(RepositoryFilms repository) {
-        this.repository = repository;
-    }
     private PosterFilm[] films = new PosterFilm[0];
     private int limit = 10;
 
@@ -19,24 +16,37 @@ public class PosterFilmManager {
         this.limit = limit;
     }
 
-
-    public PosterFilm[] getAddFilm() {
-        return this.films;
+    public PosterFilmManager(RepositoryFilms repository) {
+        this.repository = repository;
     }
 
     public void addSave(PosterFilm film) {
-        int length = films.length + 1;
-        PosterFilm[] tmp = new PosterFilm[length];
-        for (int i = 0; i < films.length; i++) {
-            tmp[i] = films[i];
-        }
-        tmp[tmp.length - 1] = film;
-        films = tmp;
-
+        repository.save(film);
     }
 
-    public PosterFilm[] findAll() {
-        return films;
+    public void removeById(int id) {
+        repository.removeById(id);
+    }
+
+    public void findById(int id) {
+        repository.findById(id);
+    }
+
+    public void removeAll() {
+        repository.removeAll();
+    }
+
+    public PosterFilm[] getAll() {
+        PosterFilm[] movies = repository.findAll();
+        int resultLength = limit;
+        if (movies.length < resultLength)
+            resultLength = movies.length;
+        PosterFilm[] result = new PosterFilm[resultLength];
+        for (int i = 0; i < resultLength; i++) {
+            int index = movies.length - i - 1;
+            result[i] = movies[index];
+        }
+        return result;
     }
 
     public PosterFilm[] findLast() {
